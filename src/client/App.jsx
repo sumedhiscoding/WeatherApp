@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Pagination from "./content/Pagination";
-// import Map from "./content/map";
+
 
 function App() {
   return (

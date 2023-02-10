@@ -2,8 +2,8 @@ const express = require("express");
 const ViteExpress = require("vite-express");
 const cors= require('cors');
 const app = express();
-ViteExpress.config({ mode: "production" })
-app.use(cors())
+ViteExpress.config({ mode: "development" })
+
 app.get("/hello", (req, res) => {
   res.send("Hello Vite + React!");
 });
@@ -15,7 +15,7 @@ const httpServer = ViteExpress.listen(app, port, () => console.log("Server is li
 const axios = require("axios");
 const Redis=require('ioredis')
 const api = "040a54370cf313bd1bd50026ec41a5c3";
-const redis = new Redis("redis://default:gLH83KqsM4YmTEgGlTbH@containers-us-west-54.railway.app:6031");
+const redis = new Redis();
 let BaseUrl = "http://api.openweathermap.org/data/2.5/group?id=";
 let BaseUrl2 = "&units;=metric&appid=040a54370cf313bd1bd50026ec41a5c3";
 
