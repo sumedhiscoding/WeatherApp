@@ -2,7 +2,7 @@ const express = require("express");
 const ViteExpress = require("vite-express");
 
 const app = express();
-ViteExpress.config({ mode: "production" })
+ViteExpress.config({ mode: "development" })
 
 app.get("/hello", (req, res) => {
   res.send("Hello Vite + React!");
