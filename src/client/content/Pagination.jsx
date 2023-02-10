@@ -3,7 +3,7 @@ import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import Map from "./Map";
 const Limit = 10;
-
+a
 const totalPagesCalculator = (total, limit) => {
   const pages = [];
   for (let x = 1; x <= parseInt(total) / limit; x++) {

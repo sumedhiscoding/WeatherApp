@@ -1,14 +1,15 @@
 const express = require("express");
 const ViteExpress = require("vite-express");
-
+const cors= require('cors');
 const app = express();
 ViteExpress.config({ mode: "production" })
-
+app.use(cors())
 app.get("/hello", (req, res) => {
   res.send("Hello Vite + React!");
 });
+const port = process.env.PORT || 3000
 
-const httpServer = ViteExpress.listen(app, 3000, () => console.log("Server is listening!"));
+const httpServer = ViteExpress.listen(app, port, () => console.log("Server is listening!"));
 
 
 const axios = require("axios");
