@@ -3,7 +3,8 @@ import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import Map from "./Map";
 const Limit = 10;
-
+// const url="http://localhost:3000"
+axios.defaults.baseURL="weatherapp-production-01e3.up.railway.app"
 const totalPagesCalculator = (total, limit) => {
   const pages = [];
   for (let x = 1; x <= parseInt(total) / limit; x++) {
@@ -22,7 +23,8 @@ const Pagination = () => {
   useEffect(() => {
     axios
       .get(
-        `https://weatherapp-production-e324.up.railway.app/page1?page=${activePage}&limit=${Limit}`
+        // 'https://localhost:3000/hello'
+        `/page1?page=${activePage}&limit=${Limit}`
         //  {
         //   params: {
         //     page: activePage,
