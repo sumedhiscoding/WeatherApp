@@ -169,6 +169,10 @@ const getWeather = async (req,res,next) => {
 // });
 
 app.get("/page1", paginatedResults(cities), getWeather, (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin','https://weatherapp-production-e324.up.railway.app');
+  res.setHeader('Access-Control-Allow-Origin' , 'GET,POST,OPTIONS,PUT,PATCH,DELETE')
+  res.setHeader('Access-Control-Allow-Origin', 'X-Requested-With,content-type' )
+  res.setHeader('Access-Control-Allow-Credentials' , true )
 console.log("done")
 });
 // app.get("/page2", paginatedResults(cities), getWeather, (req, res) => {
