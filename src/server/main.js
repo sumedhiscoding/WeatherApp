@@ -1,32 +1,11 @@
 const express = require("express");
 const ViteExpress = require("vite-express");
-// const cors= require('cors');
+const cors= require('cors');
 const app = express();
 ViteExpress.config({ mode: "production" })
-// app.use(cors(
-//   {origin:"*"}
-// ))
-app.get("/page1", paginatedResults(cities), getWeather, (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin','*');
-  res.setHeader('Access-Control-Allow-Origin' , 'GET,POST,OPTIONS,PUT,PATCH,DELETE')
-  res.setHeader('Access-Control-Allow-Origin', 'X-Requested-With,content-type' )
-  res.setHeader('Access-Control-Allow-Credentials' , true )
-console.log("done")
-});
-app.get("/hello", (req, res) => {
-  res.send("Hello Vite + React!");
-});
-const port = process.env.PORT || 3000
-
-const httpServer = ViteExpress.listen(app, port, () => console.log("Server is listening!"));
-
-const axios = require("axios");
-const Redis=require('ioredis')
-const api = "040a54370cf313bd1bd50026ec41a5c3";
-const redis = new Redis('redis://default:gLH83KqsM4YmTEgGlTbH@containers-us-west-54.railway.app:6031');
-let BaseUrl = "http://api.openweathermap.org/data/2.5/group?id=";
-let BaseUrl2 = "&units;=metric&appid=040a54370cf313bd1bd50026ec41a5c3";
-
+app.use(cors(
+  {origin:"*"}
+))
 const cities = [
   { id: 1275339, name: "Mumbai" },
   { id: 1261481, name: "New Delhi" },
@@ -59,6 +38,32 @@ const cities = [
   { id: 5174095, name: "Toronto" },
   { id: 6087824, name: "New Toronto" },
 ];
+
+app.get("/page1", paginatedResults(cities), getWeather, (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Origin' , 'GET,POST,OPTIONS,PUT,PATCH,DELETE')
+  res.setHeader('Access-Control-Allow-Origin', 'X-Requested-With,content-type' )
+  res.setHeader('Access-Control-Allow-Credentials' , true )
+console.log("done")
+});
+app.get("/hello", (req, res) => {
+  res.send("Hello Vite + React!");
+});
+const port = process.env.PORT || 3000
+
+const httpServer = ViteExpress.listen(app, port, () => console.log("Server is listening!"));
+
+const axios = require("axios");
+const Redis=require('ioredis')
+const api = "040a54370cf313bd1bd50026ec41a5c3";
+const redis = new Redis('redis://default:gLH83KqsM4YmTEgGlTbH@containers-us-west-54.railway.app:6031');
+let BaseUrl = "http://api.openweathermap.org/data/2.5/group?id=";
+let BaseUrl2 = "&units;=metric&appid=040a54370cf313bd1bd50026ec41a5c3";
+
+
+
+
+
 
 const urlgeneration = (arr) => {
   let baseUrl = BaseUrl;
