@@ -1,16 +1,24 @@
 const express = require("express");
 const ViteExpress = require("vite-express");
-const cors= require('cors');
+// const cors= require('cors');
 const app = express();
 ViteExpress.config({ mode: "production" })
-app.use(cors())
+// app.use(cors(
+//   {origin:"*"}
+// ))
+app.get("/page1", paginatedResults(cities), getWeather, (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Origin' , 'GET,POST,OPTIONS,PUT,PATCH,DELETE')
+  res.setHeader('Access-Control-Allow-Origin', 'X-Requested-With,content-type' )
+  res.setHeader('Access-Control-Allow-Credentials' , true )
+console.log("done")
+});
 app.get("/hello", (req, res) => {
   res.send("Hello Vite + React!");
 });
 const port = process.env.PORT || 3000
 
 const httpServer = ViteExpress.listen(app, port, () => console.log("Server is listening!"));
-
 
 const axios = require("axios");
 const Redis=require('ioredis')
@@ -168,13 +176,7 @@ const getWeather = async (req,res,next) => {
 //   callingapi(req, res);
 // });
 
-app.get("/page1", paginatedResults(cities), getWeather, (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin','https://weatherapp-production-e324.up.railway.app');
-  res.setHeader('Access-Control-Allow-Origin' , 'GET,POST,OPTIONS,PUT,PATCH,DELETE')
-  res.setHeader('Access-Control-Allow-Origin', 'X-Requested-With,content-type' )
-  res.setHeader('Access-Control-Allow-Credentials' , true )
-console.log("done")
-});
+
 // app.get("/page2", paginatedResults(cities), getWeather, (req, res) => {
 //   console.log("done")
 //   });
