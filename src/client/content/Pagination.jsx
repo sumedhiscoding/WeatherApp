@@ -4,7 +4,7 @@ import axios from "axios";
 import Map from "./Map";
 const Limit = 10;
 // const url="http://localhost:3000"
-axios.defaults.baseURL="weatherapp-production-01e3.up.railway.app"
+axios.defaults.baseURL="https://weather-app-final.onrender.com"
 const totalPagesCalculator = (total, limit) => {
   const pages = [];
   for (let x = 1; x <= parseInt(total) / limit; x++) {
