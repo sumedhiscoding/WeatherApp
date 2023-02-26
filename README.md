@@ -72,15 +72,18 @@
 ![img1](https://user-images.githubusercontent.com/66994315/220206907-d279c6b3-bc96-4b2b-8236-5e153ec7b262.png)
 
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+There Are many Weather-Apps starter projects which people do but what makes my project different is the implementation
 
 Here's why:
 
-- Your time should be focused on creating something amazing. A project that solves a problem and helps others
-- You shouldn't be doing the same tasks over and over like creating a README from scratch
-- You should implement DRY principles to the rest of your life :smile:
+- I generate the url endpoint as per the request for the cities this part is dynamic 
+- Url generation is dependant on the pagination limit and Page no hence the client side can call data as per requirement and does not store any data in the database     but then what about if we want to query a certain data again how do we do that? ANSWER IS :=) Caching
+- The data which is requested from the endpoint is stored in the redis cache system with an expiry of 10 mins that is after the endpoint needs to be called again and     since we are using redis(ioredis) the loading is in range 7 - 10 ms which is far far faster than any database method such as if we used mongodb 
+- I believe this fastness gives my project the edge over other weather apps 
+- If this was not enough I used LEAFLET.JS a javascript map library to showcase the fetched results on a map for better understanding
+- Markers have popup when clicked to highlight the real-time data of that particular city 
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+Hence this Paginated API is unlike no other weatherapps available on the internet since we get real-time paginated data on the map as well as a table form also everything is kept dynamic so Page-Limit can be changed the cities can be changed anything is possible since the project is very modular
 
 Use the `BLANK_README.md` to get started.
 
