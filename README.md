@@ -85,6 +85,9 @@ Here's why:
 
 Hence this Paginated API is unlike no other weatherapps available on the internet since we get real-time paginated data on the map as well as a table form also everything is kept dynamic so Page-Limit can be changed the cities can be changed anything is possible since the project is very modular
 
+### TECHNOLOGIES I USED :
+React,Tailwind,daisyui,Express,Redis,Axios,Leaflet,
+
 Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
